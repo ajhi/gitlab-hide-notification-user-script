@@ -1,25 +1,20 @@
 // ==UserScript==
 // @name         GitLab - Hide notification
 // @namespace    http://gl.sds.rocks/
-// @version      0.2.5
+// @version      0.3.0
 // @description  Hide notification functionality for GitLab. Works with GitLab CE 8.9.4.
 // @author       Tomislav Pavlović <tomislav.pavlovic@styria.hr>
 // @match        https://gitlab.com/*
 // @grant        none
 // @require      https://cdnjs.cloudflare.com/ajax/libs/spark-md5/2.0.2/spark-md5.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.min.js
-// @updateURL    https://cdn.rawgit.com/ajhi/gitlab-hide-notification-user-script/master/gitlab-hide-notification.js
+// @require      https://cdn.rawgit.com/rafaelw/mutation-summary/master/src/mutation-summary.js
 // ==/UserScript==
 
 (function() {
     'use strict';
 
-    var confirmMessage = 'Are you sure you want to hide this message?';
-    var $bm = $('.broadcast-message');
-    var msgHash = md5($bm.html());
-    var msgText = $bm.text().trim();
-    var cookieKey = 'read_' + msgHash;
-    var messageRead = Boolean(Cookies.get(cookieKey));
+    var $bm, msgHash, msgText, cookieKey, messageRead, confirmMessage;
 
     function hideMessage() {
         $bm.hide();
@@ -74,12 +69,29 @@
         });
     }
 
-    prepareMessage();
-    addHideButton();
+    function init() {
+        confirmMessage = 'Are you sure you want to hide this message?';
+        $bm = $('.broadcast-message');
+        msgHash = md5($bm.html());
+        msgText = $bm.text().trim();
+        cookieKey = 'read_' + msgHash;
+        messageRead = Boolean(Cookies.get(cookieKey));
 
-    if(messageRead) {
-        hideMessage();
-        addShowButton();
+
+        prepareMessage();
+        addHideButton();
+
+        if(messageRead) {
+            hideMessage();
+            addShowButton();
+        }
     }
+
+    init();
+
+    var observer = new MutationSummary({
+        callback: init,
+        queries: [{element: '.broadcast-message'}]
+    });
 
 })();
