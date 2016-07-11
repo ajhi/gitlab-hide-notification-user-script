@@ -8,7 +8,7 @@ Hide notification functionality for GitLab. Works with GitLab CE 8.9.4.
 
 ### Instalation 
 
-If you have [Tampermonkey](http://tampermonkey.net) or [Greasemonkey](http://www.greasespot.net) installed, you can use this URL directly: https://cdn.rawgit.com/ajhi/gitlab-hide-notification-user-script/master/gitlab-hide-notification.user.js. Just follow instructions. 
+If you have [Tampermonkey](http://tampermonkey.net) or [Greasemonkey](http://www.greasespot.net) installed, you can use this URL directly: https://rawgit.com/ajhi/gitlab-hide-notification-user-script/master/gitlab-hide-notification.user.js. Just follow instructions. 
 
 Don't forget to add custom user match if your GitLab installation has a custom URL (different from `https://gitlab.com/*`). For example: if your site is hosted on https://mygitlab.company.com, you should add `https://mygitlab.company.com/*` as a user match for this script.
 
