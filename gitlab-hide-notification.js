@@ -9,6 +9,7 @@
 // @require      https://cdnjs.cloudflare.com/ajax/libs/spark-md5/2.0.2/spark-md5.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.min.js
 // @require      https://cdn.rawgit.com/rafaelw/mutation-summary/master/src/mutation-summary.js
+// @updateURL    https://cdn.rawgit.com/ajhi/gitlab-hide-notification-user-script/master/gitlab-hide-notification.js
 // ==/UserScript==
 
 (function() {
