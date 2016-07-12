@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitLab - Hide notification
 // @namespace    http://gl.sds.rocks/
-// @version      0.3.2
+// @version      0.3.3
 // @description  Hide notification functionality for GitLab. Works with GitLab CE 8.9.4.
 // @author       Tomislav Pavlović <tomislav.pavlovic@styria.hr>
 // @match        https://gitlab.com/*
